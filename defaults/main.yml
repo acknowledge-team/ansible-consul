@@ -45,7 +45,8 @@ consul_domain: "{{ lookup('env','CONSUL_DOMAIN') | default('consul', true) }}"
 consul_node_name: "{{ ansible_hostname }}"
 consul_node_role: "{{ lookup('env','CONSUL_NODE_ROLE') | default('client', true) }}"
 consul_bootstrap_expect: 2 
-consul_servers: [] 
+consul_servers: []
+consul_recursors: "{{ lookup('env','CONSUL_RECURSORS') | default('[]', true) }}"
 
 ### Consul performance
 consul_raft_multiplier: 1
