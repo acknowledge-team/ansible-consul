@@ -16,6 +16,8 @@ addresses = {
   dns = "{{ consul_addresses.dns }}"
   http = "{{ consul_addresses.http }}"
   https = "{{ consul_addresses.https }}"
-  rpc = "{{ consul_addresses.rpc }}"
   grpc = "{{ consul_addresses.grpc }}" 
+  {% if consul_version is version_compare('0.8.0', '<') %}
+  rpc = "{{ consul_addresses.rpc }}"
+  {% endif %}
 }
