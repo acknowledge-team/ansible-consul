@@ -5,3 +5,6 @@ performance {
   raft_multiplier = {{ consul_raft_multiplier }}
 }
 ui = {{ consul_ui | lower }}
+bind_addr = "{{ consul_bind_address }}"
+advertise_addr = "{{ consul_advertise_address }}"
+advertise_addr_wan = "{{ consul_advertise_address_wan }}"

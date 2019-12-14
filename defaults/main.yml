@@ -52,5 +52,10 @@ consul_servers: []
 consul_recursors: "{{ lookup('env','CONSUL_RECURSORS') | default('[]', true) }}"
 consul_ui: "{{ lookup('env', 'CONSUL_UI') | default(true, true) }}"
 
+### Addresses
+consul_bind_address: ""
+consul_advertise_address: "{{ consul_bind_address }}"
+consul_advertise_address_wan: "{{ consul_bind_address }}"
+
 ### Consul performance
 consul_raft_multiplier: 1
