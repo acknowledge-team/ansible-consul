@@ -1,0 +1,6 @@
+datacenter = "{{ consul_datacenter }}"
+data_dir = "{{ consul_data_path }}"
+retry_join = "{{ consul_servers }}"
+performance {
+  raft_multiplier = "{{ consul_raft_multiplier }}"
+}

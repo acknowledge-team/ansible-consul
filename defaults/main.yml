@@ -1,0 +1,51 @@
+---
+# defaults file for ansible-consul
+
+### Package
+consul_version: "{{ lookup('env','CONSUL_VERSION') | default('1.6.2', true) }}"
+consul_architecture_map:
+  amd64: amd64
+  x86_64: amd64
+  armv6l: armhfv6
+  armv7l: armhfv6
+  aarch64: arm64
+  32-bit: "386"
+  64-bit: amd64
+consul_architecture: "{{ consul_architecture_map[ansible_architecture] }}"
+consul_os: "\
+  {% if ansible_os_family == 'Windows' %}\
+    {{ 'windows' }}\
+  {% else %}\
+    {{ ansible_system | lower }}\
+  {% endif %}"
+consul_pkg: "consul{% if consul_enterprise %}-enterprise{% else %}{%endif%}_{{ consul_version }}_{{ consul_os }}_{{ consul_architecture }}.zip"
+consul_zip_url: "https://releases.hashicorp.com/consul/{{ consul_version }}/consul_{{ consul_version }}_{{ consul_os }}_{{ consul_architecture }}.zip"
+consul_checksum_file_url: "https://releases.hashicorp.com/consul/{{ consul_version }}/consul_{{ consul_version}}_SHA256SUMS"
+
+### Paths
+consul_bin_path: "/usr/local/bin"
+consul_config_path: "/etc/consul.d"
+consul_data_path: "/var/consul"
+consul_log_path: "{{ lookup('env','CONSUL_LOG_PATH') | default('/var/log/consul', true) }}"
+consul_log_file: "{{ lookup('env','CONSUL_LOG_FILE') | default('consul.log', true) }}"
+consul_run_path: "/var/run/consul"
+consul_binary: "{{ consul_bin_path }}/consul"
+
+### Log user, group, facility
+consul_syslog_enable: "{{ lookup('env','CONSUL_SYSLOG_ENABLE') | default(false, true) }}"
+consul_configure_syslogd: "{{ lookup('env','CONSUL_CONFIGURE_SYSLOGD') | default(false, true) }}"
+
+### Consul user and group settings
+consul_user: "consul"
+consul_group: "consul"
+
+### Consul settings
+consul_datacenter: "{{ lookup('env','CONSUL_DATACENTER') | default('dc1', true) }}"
+consul_domain: "{{ lookup('env','CONSUL_DOMAIN') | default('consul', true) }}"
+consul_node_name: "{{ ansible_hostname }}"
+consul_node_role: "{{ lookup('env','CONSUL_NODE_ROLE') | default('client', true) }}"
+consul_bootstrap_expect: 2 
+consul_servers: [] 
+
+### Consul performance
+consul_raft_multiplier: 1
