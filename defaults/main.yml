@@ -50,6 +50,7 @@ consul_node_role: "{{ lookup('env','CONSUL_NODE_ROLE') | default('client', true)
 consul_bootstrap_expect: 2 
 consul_servers: []
 consul_recursors: "{{ lookup('env','CONSUL_RECURSORS') | default('[]', true) }}"
+consul_ui: "{{ lookup('env', 'CONSUL_UI') | default(true, true) }}"
 
 ### Consul performance
 consul_raft_multiplier: 1
