@@ -3,7 +3,7 @@
 - name: Consul base configuration
   template:
     src: base.hcl.j2
-    dest: "{{ consul_config_dir }}/base.hcl"
+    dest: "{{ consul_config_path }}/base.hcl"
     owner: "{{ consul_user }}"
     group: "{{ consul_group }}"
     mode: 0644
@@ -14,7 +14,7 @@
 - name: Consul server configuration
   template:
     src: server.hcl.j2
-    dest: "{{ consul_config_dir }}/server.hcl"
+    dest: "{{ consul_config_path }}/server.hcl"
     owner: "{{ consul_user }}"
     group: "{{ consul_group }}"
     mode: 0644
