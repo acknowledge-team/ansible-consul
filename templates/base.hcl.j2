@@ -22,5 +22,5 @@ addresses = {
   {% endif %}
 }
 
-encrypt_verify_incoming = "{{ consul_encrypt_verify_incoming | lower }}"
-encrypt_verify_outgoing = "{{ consul_encrypt_verify_outgoing | lower }}"
+encrypt_verify_incoming = {{ consul_encrypt_verify_incoming | lower }}
+encrypt_verify_outgoing = {{ consul_encrypt_verify_outgoing | lower }}
