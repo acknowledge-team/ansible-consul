@@ -77,3 +77,7 @@ consul_ports:
 
 ### Consul performance
 consul_raft_multiplier: 1
+
+### Encryption
+consul_encrypt_verify_incoming : false
+consul_encrypt_verify_outgoing : false
