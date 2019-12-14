@@ -1,6 +1,9 @@
 ---
 # defaults file for ansible-consul
 
+# Consul Enterprise
+consul_enterprise: "{{ lookup('env','CONSUL_ENTERPRISE') | default(false, true) }}"
+
 ### Package
 consul_version: "{{ lookup('env','CONSUL_VERSION') | default('1.6.2', true) }}"
 consul_architecture_map:
