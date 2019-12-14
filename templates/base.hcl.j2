@@ -4,4 +4,4 @@ retry_join = {{ consul_servers | to_json }}
 performance {
   raft_multiplier = {{ consul_raft_multiplier }}
 }
-ui = {{ consul_ui }}
+ui = {{ consul_ui | lower }}
