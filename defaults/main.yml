@@ -81,3 +81,6 @@ consul_raft_multiplier: 1
 ### Encryption
 consul_encrypt_verify_incoming : false
 consul_encrypt_verify_outgoing : false
+
+### Script checks
+enable_local_script_checks: true
