@@ -23,7 +23,7 @@ addresses = {
 }
 
 {% if consul_encrypt_verify_incoming | bool or consul_encrypt_verify_outgoing | bool %}
-encrypt = {{ consul_encrypt_key }}
+encrypt = "{{ consul_encrypt_key }}"
 {% endif %}
 encrypt_verify_incoming = {{ consul_encrypt_verify_incoming | lower }}
 encrypt_verify_outgoing = {{ consul_encrypt_verify_outgoing | lower }}
