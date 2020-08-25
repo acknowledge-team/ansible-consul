@@ -22,6 +22,8 @@ addresses = {
   {% endif %}
 }
 
+# GOSSIP ENCRYPTION
+encrypt = "{{ gossip_encryption_key }}"
 encrypt_verify_incoming = {{ consul_encrypt_verify_incoming | lower }}
 encrypt_verify_outgoing = {{ consul_encrypt_verify_outgoing | lower }}
 enable_local_script_checks = {{ enable_local_script_checks | lower }}
