@@ -90,3 +90,4 @@ enable_local_script_checks: true
 acl_enable: true
 acl_default_policy: "allow"
 acl_token_persistence_enable: true
+default_acl_token: ""
