@@ -85,3 +85,8 @@ consul_encrypt_verify_outgoing : false
 
 ### Script checks
 enable_local_script_checks: true
+
+### acl option
+acl_enable: true
+acl_default_policy: "allow"
+acl_token_persistence_enable: true
