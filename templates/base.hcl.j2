@@ -41,3 +41,9 @@ acl = {
   }
 }
 {% endif %}
+
+## LOGGING CONFIGURATION
+
+{% if consul_syslog_enable | bool %}
+enable_syslog = {{ consul_syslog_enable | lower }}
+{% endif %}
