@@ -34,7 +34,7 @@ enable_local_script_checks = {{ enable_local_script_checks | lower }}
 {% if acl_enable | bool %}
 acl = {
   enabled = true
-  default_policy = {{ acl_default_policy }} 
+  default_policy = "{{ acl_default_policy }}" 
   enable_token_persistence = {{ acl_token_persistence_enable | lower }} 
 }
 {% endif %}
