@@ -22,6 +22,7 @@ addresses = {
   {% endif %}
 }
 
+# GOSSIP ENCRYPTION
 {% if consul_encrypt_verify_incoming | bool or consul_encrypt_verify_outgoing | bool %}
 encrypt = "{{ consul_encrypt_key }}"
 {% endif %}

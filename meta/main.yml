@@ -1,6 +1,6 @@
 galaxy_info:
   author: Jimmy Casse 
-  description: Ansible role for consul installation 
+  description: Ansible role for consul installation
   company: Acknowledge
   license: license (GPL-2.0-or-later, MIT, etc)
   min_ansible_version: 2.9
