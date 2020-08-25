@@ -79,15 +79,9 @@ consul_ports:
 consul_raft_multiplier: 1
 
 ### Encryption
-<<<<<<< HEAD
-consul_encrypt_verify_incoming: false
-consul_encrypt_verify_outgoing: false
-gossip_encryption_key: ""
-=======
 consul_encrypt_key: ""
 consul_encrypt_verify_incoming : false
 consul_encrypt_verify_outgoing : false
->>>>>>> 27bb2db91739df253a1a9520cada62e5ad3fee62
 
 ### Script checks
 enable_local_script_checks: true

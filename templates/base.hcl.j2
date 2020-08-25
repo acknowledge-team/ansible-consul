@@ -22,14 +22,10 @@ addresses = {
   {% endif %}
 }
 
-<<<<<<< HEAD
 # GOSSIP ENCRYPTION
-encrypt = "{{ gossip_encryption_key }}"
-=======
 {% if consul_encrypt_verify_incoming | bool or consul_encrypt_verify_outgoing | bool %}
 encrypt = "{{ consul_encrypt_key }}"
 {% endif %}
->>>>>>> 27bb2db91739df253a1a9520cada62e5ad3fee62
 encrypt_verify_incoming = {{ consul_encrypt_verify_incoming | lower }}
 encrypt_verify_outgoing = {{ consul_encrypt_verify_outgoing | lower }}
 enable_local_script_checks = {{ enable_local_script_checks | lower }}
