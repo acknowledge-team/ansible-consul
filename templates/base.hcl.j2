@@ -37,4 +37,7 @@ acl = {
   default_policy = "{{ acl_default_policy }}" 
   enable_token_persistence = {{ acl_token_persistence_enable | lower }} 
 }
+tokens = {
+ default = "{{ default_acl_token }}"
+}
 {% endif %}
