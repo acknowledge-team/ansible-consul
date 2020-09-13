@@ -22,8 +22,8 @@ consul_os: "\
     {{ ansible_system | lower }}\
   {% endif %}"
 consul_pkg: "consul{% if consul_enterprise %}-enterprise{% else %}{%endif%}_{{ consul_version }}_{{ consul_os }}_{{ consul_architecture }}.zip"
-consul_zip_url: "https://releases.hashicorp.com/consul/{{ consul_version }}/consul_{{ consul_version }}_{{ consul_os }}_{{ consul_architecture }}.zip"
-consul_checksum_file_url: "https://releases.hashicorp.com/consul/{{ consul_version }}/consul_{{ consul_version}}_SHA256SUMS"
+consul_zip_url: "https://releases.hashicorp.com/consul/{{ consul_version }}{{ '+ent' if vault_enterprise else '' }}/consul_{{ consul_version }}{{ '+ent' if vault_enterprise else '' }}_{{ consul_os }}_{{ consul_architecture }}.zip"
+consul_checksum_file_url: "https://releases.hashicorp.com/consul/{{ consul_version }}{{ '+ent' if vault_enterprise else '' }}/consul_{{ consul_version}}{{ '+ent' if vault_enterprise else '' }}_SHA256SUMS"
 
 ### Paths
 consul_bin_path: "/usr/local/bin"
