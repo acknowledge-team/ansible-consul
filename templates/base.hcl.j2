@@ -1,5 +1,6 @@
 datacenter = "{{ consul_datacenter }}"
 data_dir = "{{ consul_data_path }}"
+domain = "{{ consul_domain }}"
 
 retry_join = {{ consul_servers | to_json }}
 performance {
@@ -22,9 +23,28 @@ addresses = {
   {% endif %}
 }
 
+## GOSSIP ENCRYPTION
 {% if consul_encrypt_verify_incoming | bool or consul_encrypt_verify_outgoing | bool %}
 encrypt = "{{ consul_encrypt_key }}"
 {% endif %}
 encrypt_verify_incoming = {{ consul_encrypt_verify_incoming | lower }}
 encrypt_verify_outgoing = {{ consul_encrypt_verify_outgoing | lower }}
 enable_local_script_checks = {{ enable_local_script_checks | lower }}
+
+## ACL CONFIG
+{% if acl_enable | bool %}
+acl = {
+  enabled = true
+  default_policy = "{{ acl_default_policy }}" 
+  enable_token_persistence = {{ acl_token_persistence_enable | lower }} 
+  tokens = {
+    default = "{{ default_acl_token }}"
+  }
+}
+{% endif %}
+
+## LOGGING CONFIGURATION
+
+{% if consul_syslog_enable | bool %}
+enable_syslog = {{ consul_syslog_enable | lower }}
+{% endif %}
