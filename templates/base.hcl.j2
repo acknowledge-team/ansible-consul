@@ -46,3 +46,9 @@ acl = {
 {% if consul_syslog_enable | bool %}
 enable_syslog = {{ consul_syslog_enable | lower }}
 {% endif %}
+
+## TELEMETRY
+
+telemetry {
+  disable_compat_1.9 = true
+}
