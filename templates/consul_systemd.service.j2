@@ -20,7 +20,7 @@ PIDFile={{ consul_run_path }}/consul.pid
 PermissionsStartOnly=true
 ExecStartPre=-/bin/mkdir -m 0750 -p {{ consul_run_path }}
 ExecStartPre=/bin/chown -R {{ consul_user }}:{{ consul_group }} {{ consul_run_path }}
-ExecStart={{ consul_bin_path }}/consul agent -config-dir={{ consul_config_path}}/ -pid-file={{ consul_run_path }}/consul.pid
+ExecStart={{ consul_bin_path }}/consul agent -data-dir {{ consul_data_path }} -config-dir={{ consul_config_path }}/ -pid-file={{ consul_run_path }}/consul.pid
 ExecReload={{ consul_bin_path }}/consul reload
 KillMode=process
 KillSignal=SIGTERM
