@@ -1,9 +1,9 @@
 ---
 # handlers file for ansible-consul
 
-- name: restart consul on Linux
+- name: reload consul on Linux
   service:
     name: consul
-    state: restarted
+    state: reloaded
   when: ansible_os_family != "Windows"
-  listen: 'restart consul'
+  listen: 'reload consul'
