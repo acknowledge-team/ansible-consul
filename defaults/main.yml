@@ -5,7 +5,7 @@
 consul_enterprise: false
 
 ### Package
-consul_version: "1.8.0"
+consul_version: "1.9.1"
 consul_architecture_map:
   amd64: amd64
   x86_64: amd64
