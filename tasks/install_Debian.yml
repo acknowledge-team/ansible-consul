@@ -127,7 +127,7 @@
     group: "{{ consul_group }}"
     mode: 0755
   notify:
-    - reload consul
+    - restart consul
 
 - name: Cleanup
   file:
@@ -148,7 +148,7 @@
     group: root
     mode: 0644
   register: systemd_unit
-  notify: reload consul
+  notify: restart consul
   when:
     - ansible_service_mgr == "systemd"
 

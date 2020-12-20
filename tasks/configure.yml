@@ -8,7 +8,7 @@
     group: "{{ consul_group }}"
     mode: 0644
   notify:
-    - reload consul
+    - restart consul
 
 ### Consul server configuration
 - name: Consul server configuration
@@ -19,5 +19,5 @@
     group: "{{ consul_group }}"
     mode: 0644
   notify:
-    - reload consul
+    - restart consul
   when: consul_node_role == "server"
