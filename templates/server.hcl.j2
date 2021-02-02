@@ -7,9 +7,3 @@ recursors = {{ consul_recursors | to_json }}
 ui_config {
   enabled = {{ consul_ui | lower }}
 }
-
-{% if consul_connect | bool %}
-connect {
-  enabled = true
-}
-{% endif %}
