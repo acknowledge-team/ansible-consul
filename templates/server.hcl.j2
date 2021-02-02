@@ -6,4 +6,7 @@ recursors = {{ consul_recursors | to_json }}
 
 ui_config {
   enabled = {{ consul_ui | lower }}
+  {% if metrics_provider_enabled | bool %}
+  metrics_provider = {{ metrics_provider }}
+  {% endif %}
 }

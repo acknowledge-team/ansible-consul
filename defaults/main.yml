@@ -94,3 +94,7 @@ default_acl_token: ""
 
 # connect
 consul_connect: true
+
+# metrics (enabled on consul servers)
+metrics_provider_enabled: true
+metrics_provider: "prometheus"
