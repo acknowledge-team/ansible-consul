@@ -51,10 +51,3 @@ enable_syslog = {{ consul_syslog_enable | lower }}
 telemetry {
   disable_compat_1.9 = true
 }
-
-## CONSUL CONNECT
-{% if consul_connect | bool %}
-connect {
-  enabled = true
-}
-{% endif %}
