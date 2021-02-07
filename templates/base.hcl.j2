@@ -54,6 +54,13 @@ acl = {
 }
 {% endif %}
 
+## CONSUL CONNECT
+{% if connect_enable | bool %}
+connect {
+  enabled = true
+}
+{% endif %}
+
 ## LOGGING CONFIGURATION
 
 {% if consul_syslog_enable | bool %}
