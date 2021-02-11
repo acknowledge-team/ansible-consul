@@ -17,3 +17,7 @@ connect {
   enabled = true
 }
 {% endif %}
+
+
+primary_datacenter = "{{ consul_primary_datacenter }}"
+advertise_addr_wan = "{{ consul_advertise_address_wan }}"
