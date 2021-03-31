@@ -55,7 +55,6 @@ consul_ui: true
 ### Addresses
 consul_bind_address: "{{ ansible_default_ipv4.address }}"
 consul_advertise_address: "{{ consul_bind_address }}"
-consul_advertise_address_wan: "{{ consul_bind_address }}"
 consul_client_address: '127.0.0.1'
 consul_addresses:
   dns: "{{ consul_addresses_dns | default(consul_client_address, true) }}"
@@ -101,3 +100,8 @@ metrics_provider: "prometheus"
 
 # telemetry
 disable_compat_1_9: true
+
+# wan federation
+wan_federation: false
+primary_datacenter: "dc1"
+consul_advertise_address_wan: "{{ consul_bind_address }}"
