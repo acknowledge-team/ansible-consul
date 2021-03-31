@@ -58,5 +58,5 @@ enable_syslog = {{ consul_syslog_enable | lower }}
 # TELEMETRY
 #---------------------------------------
 telemetry {
-  disable_compat_1.9 = {{ disable_compat_1_9 | bool }}
+  disable_compat_1.9 = {{ disable_compat_1_9 | lower }}
 }
