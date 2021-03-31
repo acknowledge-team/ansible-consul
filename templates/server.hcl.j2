@@ -1,4 +1,5 @@
 server = true
+
 bootstrap_expect = {{ consul_bootstrap_expect }}
 {% if consul_recursors | length > 0 %}
 recursors = {{ consul_recursors | to_json }}
@@ -11,13 +12,19 @@ ui_config {
   {% endif %}
 }
 
-## CONSUL CONNECT
 {% if consul_connect | bool %}
+#---------------------------------------
+# CONSUL CONNECT
+#---------------------------------------
 connect {
   enabled = true
 }
 {% endif %}
 
-
+{% if wan_federation | bool %}
+#---------------------------------------
+# CONSUL WAN FEDERATION 
+#---------------------------------------
 primary_datacenter = "{{ consul_primary_datacenter }}"
 advertise_addr_wan = "{{ consul_advertise_address_wan }}"
+{% endif %}

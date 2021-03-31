@@ -1,3 +1,6 @@
+#---------------------------------------
+# GLOBAL SETTINGS
+#---------------------------------------
 datacenter = "{{ consul_datacenter }}"
 domain = "{{ consul_domain }}"
 
@@ -8,6 +11,7 @@ performance {
 
 bind_addr = "{{ consul_bind_address }}"
 advertise_addr = "{{ consul_advertise_address }}"
+
 client_addr = "{{ consul_client_address }}"
 addresses = {
   dns = "{{ consul_addresses.dns }}"
@@ -19,7 +23,9 @@ addresses = {
   {% endif %}
 }
 
-## GOSSIP ENCRYPTION
+#---------------------------------------
+# GOSSIP ENCRYPTION
+#---------------------------------------
 {% if consul_encrypt_verify_incoming | bool or consul_encrypt_verify_outgoing | bool %}
 encrypt = "{{ consul_encrypt_key }}"
 {% endif %}
@@ -27,7 +33,9 @@ encrypt_verify_incoming = {{ consul_encrypt_verify_incoming | lower }}
 encrypt_verify_outgoing = {{ consul_encrypt_verify_outgoing | lower }}
 enable_local_script_checks = {{ enable_local_script_checks | lower }}
 
-## ACL CONFIG
+#---------------------------------------
+# ACL CONFIG
+#---------------------------------------
 {% if acl_enable | bool %}
 acl = {
   enabled = true
@@ -39,14 +47,16 @@ acl = {
 }
 {% endif %}
 
-## LOGGING CONFIGURATION
-
+#---------------------------------------
+# LOGGING
+#---------------------------------------
 {% if consul_syslog_enable | bool %}
 enable_syslog = {{ consul_syslog_enable | lower }}
 {% endif %}
 
-## TELEMETRY
-
+#---------------------------------------
+# TELEMETRY
+#---------------------------------------
 telemetry {
-  disable_compat_1.9 = true
+  disable_compat_1.9 = {{ disable_compat_1_9 | bool }}
 }

@@ -98,3 +98,6 @@ consul_connect: true
 # metrics (enabled on consul servers)
 metrics_provider_enabled: true
 metrics_provider: "prometheus"
+
+# telemetry
+disable_compat_1_9: true
